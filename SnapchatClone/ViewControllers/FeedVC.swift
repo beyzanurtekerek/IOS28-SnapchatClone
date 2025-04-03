@@ -113,6 +113,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
         cell.feedUserNameLabel.text = snapArray[indexPath.row].username
+        cell.feedImageView.layer.cornerRadius = cell.feedImageView.frame.size.width / 2
+        cell.feedImageView.clipsToBounds = true
         cell.feedImageView.sd_setImage(with: URL(string: snapArray[indexPath.row].imageUrlArray[0]))
         return cell
     }
